@@ -1,0 +1,348 @@
+.editor {
+	/* Basy Layout */
+	--clr-primary: hsl(236 37 8%);
+	--clr-secondary: #FAF4E8;
+	--clr-accent: #FFB651;
+	--border-radius: 5px;
+
+	--clr-editor-active-tab: hsl(236 37 13%);
+	--clr-editor-display: var(--clr-primary);
+
+	--transition-time: 350ms;
+
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    width: 100%;
+	isolation: isolate;
+    border-radius: var(--border-radius);
+    overflow: clip; // for border-radius
+	scrollbar-width: thin;
+    scrollbar-color: var(--clr-primary) --clr-editor-active-tab; /* thumb | track */
+    &_tabset {
+        list-style-type: none;
+        display: flex;
+        overflow-y: clip;
+        overflow-x: auto;
+        background: var(--clr-primary);
+        scrollbar-width: none;
+        &.dragging {
+            user-select: none !important;
+            li { 
+                cursor: grabbing !important;
+            }
+        }
+        &-ico {
+            width: 15px;
+			aspect-ratio: 1;
+			object-fit: contain;
+        }
+        li {
+            flex-shrink: 0;
+            width: fit-content;
+            transition: var(--transition-time);
+            cursor: pointer;
+            > span {
+                display: flex;
+				align-items: center;
+                padding: 15px;
+                span {
+                    margin-left: 10px;
+                    color: #fff;
+                }
+            }
+            &:hover {
+                background: var(--clr-editor-active-tab);
+            }
+            &[aria-selected="true"] {
+                position: relative;
+                background: var(--clr-editor-active-tab);
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    background: var(--clr-accent);
+                }
+            }
+        }
+    }
+    &_display {
+        width: 100%;
+        height: 400px;
+        background: --clr-editor-display;
+        overflow-x: auto;
+        scroll-behavior: contain;
+    }
+    &_window {
+        position: relative;
+    }
+}
+
+
+/* PrismJS 1.30.0 https://prismjs.com/download.html#themes=prism-twilight&languages=markup+css+clike+javascript+bash+ignore+javadoclike+jsdoc+js-extras+json+js-templates+markup-templating+php+phpdoc+php-extras+plsql+jsx+tsx+scss+sql+typescript+typoscript+uri&plugins=line-numbers+normalize-whitespace */
+
+/**********************************************************/
+/*   prism.js Custom theme for proferick.com @dark-mode   */
+/*          Author: @salegomx | sergiogomez.mx            */
+/*    Heavily inspired on 'Nihgt Owl' theme for VSCode    */
+/**********************************************************/
+
+code[class*="language-"], pre[class*="language-"] {
+	font-family: Consolas, Monaco, 'Ubuntu Mono', monospace;
+	font-size: 1.05em;
+	color: white;
+	line-height: 1.5;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	width: 100%;
+	overflow: auto;
+	background-color: #012938;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 0.5em;
+	/* Firefox */
+	& ::-moz-selection {
+		background: #305971;
+	}
+	/* Rest of browsers */
+	& ::selection {
+		background: #305971;
+	}
+}
+/* Defaults */
+.token {
+	&.comment,
+	&.prolog,
+	&.cdata {
+		color: #90a9a9;
+	}
+	&.tag,
+	&.boolean,
+	&.deleted
+	&.selector,
+	&.constant,
+	&.symbol,
+	&.builtin {
+		color: #ef6479;
+	}
+	&.number {
+		color: #ff8b24;
+	}
+	&.property {
+		color: #40b28f;
+	}
+	&.attr-value,
+	&.string,
+	&.char,
+	&.operator,
+	&.entity,
+	&.url,
+	&.variable,
+	&.inserted {
+		color: #48cfa6;
+	}
+	&.atrule,
+	&.function,
+	&.string,
+	&.regex {
+		color: #ffd883;
+	}
+	&.keyword,
+	&.function,
+	&.important {
+		color: #f39eff;
+	}
+	&.important,
+	&.bold {
+		font-weight: bold;
+	}
+	&.italic {
+		font-style: italic;
+	}
+	&.entity {
+		cursor: help;
+	}
+}
+/* Markup */
+.language-markup {
+	.token {
+		&.name,
+		&.attr-name {
+			color: #ffd883;
+		}
+		&.doctype,
+		&.tag {
+			color: #ef6479;
+		}
+		&.attr-value {
+			color: #09cb8f;
+		}
+		&.punctuation {
+			color: #c4f320;
+		}
+	}
+}
+/* Inline styles, CSS, SCSS, SASS */
+:is( .style, .language-css, .language-scss, .language-sass) {
+	.token {
+		&.atrule {
+			color: #ff9870;
+		}
+		&.selector{
+			color: #09cb8f;
+		}
+		&.property {
+			color: #a0fcf3;
+		}
+		&.punctuation {
+			color: #ffd700;
+		}
+		&.function {
+			color: #ffd883;
+		}
+		&.keyword,
+		&.important,
+		&.rule {
+			color: #f39eff;
+		}
+	}
+}
+/* inline Scritps, JS, TS, JSX, TSX, JSON */
+:is(
+	.script,
+	.language-js,
+	.language-ts,
+	.language-typescript,
+	.language-json,
+	.language-webmanifest
+) {
+	.token {
+		&.keyword,
+		&.operator {
+			color: #f39eff;
+		}
+		&.literal-property,
+		&.property {
+			color: #a0fcf3;
+		}
+		&.punctuation {
+			color: #ffd700;
+		}
+		&.function,
+		&.boolean {
+			color: #ef6479;
+		}
+		&.number {
+			color: #ff8b24;
+		}
+	}
+}
+/* PHP */
+.language-php {
+	.token {
+		&.delimiter.important {
+			color: #ff4b66;
+		}
+		&.doctype,
+		&.tag {
+			color: #ef6479;
+		}
+		&.name,
+		&.attr-name {
+			color: #ffd883;
+		}
+		&.variable {
+			color: #f0f0f0;
+		}
+		&.keyword,
+		&.operator {
+			color: #f39eff;
+		}
+		&.punctuation {
+			color: #ffd700;
+		}
+		&.function {
+			color: #ffd883;
+		}
+		&.number {
+			color: #ff8b24;
+		}
+	}
+}
+
+.language-sql {
+	.token {
+		&.keyword {
+			color: #f39eff;
+		}
+		&.punctuation {
+			color: #ffd700;
+		}
+		&.function {
+			color: #09cb8f;
+		}
+		&.number {
+			color: #ff8b24;
+		}&.operator {
+			color: #a0fcf3;
+		}
+	}
+}
+:is(.language-bash, .language.sh, .language-shell) {
+	.token:not(.comment, .prolog, .cdata, .string, .function) {
+		color: #fff;
+	}
+}
+
+/*****************************************************************/
+/* Plugin: Line Numbers https://prismjs.com/plugins/line-numbers */
+/*****************************************************************/
+
+pre[class*="language-"].line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+	> code {
+		position: relative;
+		white-space: inherit;
+	}
+}
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #ccc;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	> span {
+		display: block;
+		counter-increment: linenumber;
+		&::before {
+			content: counter(linenumber);
+			color: #ccc;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+	}
+}

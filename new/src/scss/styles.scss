@@ -1,0 +1,12 @@
+// Reset
+@use './components/reset.scss';
+
+// Themes
+@use './themes/light.scss';
+
+// Base (Header, Content, Footer)
+@use './components/base.scss';
+@use './components/utilities.scss';
+
+// Components
+@use './components/forms.scss';

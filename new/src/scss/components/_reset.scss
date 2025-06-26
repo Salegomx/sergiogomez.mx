@@ -1,0 +1,50 @@
+@use "../abstract/variables" as *;
+
+/* Reset Browser Defaults */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+:is(img, picture, video, canvas, svg) {
+	max-width: 100%;
+}
+:is(input, button, textarea, select) {
+	font: inherit;
+}
+:is(a, a:hover) {
+	padding: 1pt;
+	text-decoration: none;
+}
+:is(ul, ol) {
+	list-style: none;
+}
+:is(h1, h2, h3, h4, h5, h6) {
+	font-size: 1em;
+	font-weight: 400;
+}
+:is(button, input[type="submit"], input[type="reset"], input[type="button"]) {
+	padding: 3px 10px;
+	border: 0;
+	background: none;
+	border-radius: $radius-5;
+	color: inherit;
+	cursor: pointer;
+}
+/* REMOVE ALL ANIMATIONS, TRANSITIONS AND SMOOTH SCROLL FOR PEOPLE THAT PREFER NOT TO SEE THEM */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms;
+		animation-iteration-count: 1;
+		transition-duration: 0.01ms;
+		scroll-behavior: auto;
+	}
+}

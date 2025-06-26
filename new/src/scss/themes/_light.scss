@@ -1,0 +1,19 @@
+:root {
+    /* Colors */
+    --clr-primary-base: 236, 37%;
+    --clr-primary-darker: hsl(var(--clr-primary-base), 8%);
+    --clr-primary-dark: hsl(var(--clr-primary-base), 18%);
+    --clr-primary: hsl(var(--clr-primary-base), 23%);
+    --clr-primary-light: hsl(var(--clr-primary-base), 33%);
+    --clr-primary-lighter: hsl(var(--clr-primary-base), 43%);
+
+    --clr-secondary: #FAF4E8;
+    --clr-accent: #FFB651;
+
+    --clr-white: #FFF;
+    --clr-gray: #CCC;
+    --clr-black: #222;
+
+    --clr-header-blur: #FAF4E8CC;
+    --clr-menu-blur: #FFFE;
+}

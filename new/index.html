@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sergio Gómez</title>
+</head>
+<body>
+	<a href="#content" class="sr-only">Skip to content</a>
+	<header class="header">
+		<div class="header__container">
+			<a class="header__logo" href="/">
+				<img src="/img/logo.svg" alt="Sergio Gómez" width="95" height="45">
+			</a>
+			<div class="header__actions">
+				<!--button id="theme-toggle" class="theme-toggle">
+					<i class="fa-solid fa-circle-half-stroke"></i>
+				</button-->
+				<nav class="header__nav">
+					<ul>
+						<li><a href="#hero">Home</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+				<button id="header__menu-btn" class="mobile-only">
+					<span class="top"></span>
+					<span class="middle"></span>
+					<span class="bottom"></span>
+				</button>
+			</div>
+		</div>
+	</header>
+	<main id="content" class="content">
+		<section id="hero" class="content__section content__section--hero">
+			<div class="content__container grid">
+				<div>
+					<h1 class="heading">Sergio Gómez</h1>
+					<p class="subheading">Web Developer.<br>Multi-faceted. I <em class="highlight">love</em> CSS</p>
+				</div>
+				<div>
+					<div id="editor_intro" class="editor">
+						<ul class="editor_tabset draggable-horizontal">
+							<li role="tab"><span data-target="#editor_window-js"><img class="editor_tabset-ico" src="./img/json.png" alt=""><span>index.json</span></span></li>
+						</ul>
+						<div class="editor_display">
+							<div id="editor_window-js" class="editor_window">
+								<pre>
+									<code class="language-js">
+										{
+											"name": "Sergio_Gomez",
+											"title": "Web_Developer",
+											"url": "https://sergiogomez.mx",
+											"contact": "hola@sergiogomez.mx"
+										}
+									</code>
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="projects" class="content__section">
+			<div class="content__container">
+				<h2 class="heading">My Work</h2>
+				<p class="subheading">Real-world projects that reflect my approach to design and development.</p>
+				<div class="grid">
+					<div class="card">
+						<a class="card__link" href="">
+							<img class="card__picture" src="./img/projects/openhotel.png" alt="Placeholder Pic">
+							<h3 class="card__title">openhotel.com</h3>
+							<p class="card__content">
+								This was my first big project.
+								<br>The goal was to create a website that was very mantainable and responsive by taking advantage of <em class="highlight">modern CSS</em>, but also considering compatibility across major browsers.
+								<br>Let me show you how I did it.
+							</p>
+						</a>
+					</div>
+					<div class="card">
+						<a class="card__link" href="">
+							<img class="card__picture" src="./img/projects/proferick.png" alt="Placeholder Pic">
+							<h3 class="card__title">proferick.com</h3>
+							<p class="card__content">
+								A website for my teacher and mentor.
+								<br>I desgined it to reflect his style: <em class="highlight">wise but relaxed.</em> Friendly typography, an Owl as a logo and a very distinct design from the rest of the web. You know you are talking to a real professor when you see this website.
+								<br>Click here to know more about it.
+							</p>
+						</a>
+					</div>
+					<div class="card">
+						<a class="card__link" href="">
+							<img class="card__picture" src="./img/projects/placeholder.jpg" alt="Placeholder Pic">
+							<h3 class="card__title">Mobile App with React Native</h3>
+							<p class="card__content">Coming Soon...</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="about" class="content__section">
+			<div class="content__container">
+				<h2 class="heading">About</h2>
+				<span class="subheading">A little bit about me</span>
+				<div class="grid">
+					<p>
+						I'm a full stack developer with a passion for creating clean, purposeful, and user-focused digital experiences.
+						<br>My work lives at the intersection of design, technology, and real-world impact—particularly in the travel and hospitality space, which I care deeply about both personally and professionally.
+						<br><br>This site is a reflection of my journey so far: from coding front-end interfaces with JavaScript, jQuery, and SASS, to building and maintaining backend systems with SQL and ColdFusion. I also take care of domains, SSL certificates, and DNS configuration—because details matter, and I enjoy bridging the creative with the technical.
+						<br><br>Beyond code, I'm someone who learns through experience. I value curiosity, good questions, and meaningful challenges—whether that means exploring new cultures, working on side projects, or helping others grow. Here, you'll find a mix of my work, thoughts, and ongoing experiments. I'm always building, evolving, and seeking out what's next.
+						<br><br>Two quotes I live by:
+						<br>“Have less. Do more. Be more.”
+						<br>“Humility without ambition makes you mediocre. Ambition without humility makes you toxic.”
+					</p>
+					<img class="about__picture" src="./img/sergio.jpg" alt="Sergio Gómez">
+				</div>
+			</div>
+		</section>
+		<section id="contact" class="content__section">
+			<div class="content__container grid">
+				<div>
+					<h2 class="heading">Get in touch</h2>
+					<p class="subheading">Get in touch with me</p>
+					<p>
+						If you're working on something interesting or just want to connect,
+						<br>feel free to reach out.
+					</p>
+				</div>
+				<!---div>
+					<form class="form" action="#">
+						<fieldset>
+							<legend class="sr-only">Your personal information</legend>
+							<label for="name">
+								<span>Name:</span>
+								<input id="name" name="name" type="text" placeholder="Name">
+							</label>
+							<label for="email">
+								<span>Email:</span>
+								<input id="email" name="email" type="email" placeholder="Email">
+							</label>
+						</fieldset>
+						<fieldset>
+							<legend class="sr-only">Your message:</legend>
+							<label for="message">
+								<span>Comments:</span>
+								<textarea id="message" name="message" placeholder="Message"></textarea>
+							</label>
+						</fieldset>
+						<input type="submit" value="Send">
+					</form>
+				</div--->
+			</div>
+		</section>
+	</main>
+	<footer class="footer">
+		<div class="footer__container">
+			<img src="/img/logo_white.svg" alt="Sergio Gómez" width="225" height="67.5">
+			<nav class="footer__nav">
+				<ul>
+					<li><a href="#hero">Home</a></li>
+					<li><a href="#projects">Projects</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+			<nav class="footer__nav">
+				<ul>
+					<li><a href="https://github.com/Salegomx" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" title="GitHub" aria-label="GitHub"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/salegomx/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in" title="LinkedIn" aria-label="LinkedIn"></i></a></li>
+					<li><a href="https://www.instagram.com/salegomx/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram" title="Instagram" aria-label="Instagram"></i></a></li>
+					<li><a href="mailto:hola@sergiogomez.mx" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-envelope" title="Email" aria-label="Email"></i></a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="footer__copyright">
+			<p>© <span class="footer__year"></span> • Designed and developed by <span class="footer__name">Sergio Gómez</span></p>
+		</div>
+	</footer>
+	<script type="module" src="/src/main.js"></script>
+</body>
+</html>

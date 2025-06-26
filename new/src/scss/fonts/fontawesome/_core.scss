@@ -1,0 +1,35 @@
+.#{$fa-css-prefix} {
+  font-family: '#{$fa-style-family}';
+  font-weight: #{$fa-style};
+}
+
+.#{$fa-css-prefix},
+.#{$fa-css-prefix}-solid, .fas,
+.#{$fa-css-prefix}-regular, .far,
+.#{$fa-css-prefix}-brands,.fab {
+  display: #{$fa-display};
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.#{$fa-css-prefix}::before,
+.fas::before, .#{$fa-css-prefix}-solid::before,
+.far::before, .#{$fa-css-prefix}-regular::before,
+.fab::before, .#{$fa-css-prefix}-brands::before {
+  content: var(#{$fa-icon-property});
+}
+
+.#{$fa-css-prefix}-classic,
+.fas, .#{$fa-css-prefix}-solid,
+.far, .#{$fa-css-prefix}-regular {
+  font-family: 'Font Awesome 6 Free';
+}
+.#{$fa-css-prefix}-brands, .fab {
+  font-family: 'Font Awesome 6 Brands';
+}
+
+//%fa-icon {
+//  @include fa-icon;
+//}

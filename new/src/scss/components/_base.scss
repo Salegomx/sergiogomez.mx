@@ -1,0 +1,278 @@
+@use '../abstract/variables' as *;
+
+/***************/
+/* Base Layout */
+/***************/
+::selection {
+    background: var(--clr-accent);
+    color: var(--clr-primary-darker);
+}
+body {
+    font-family: $ff-body;
+    color: var(--clr-primary-darker);
+    line-height: 1.5;
+}
+.header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 1;
+    padding-block: $padding;
+    transition: $transition-time-fast;
+    &.blur {
+        backdrop-filter: blur(0.25rem);
+        padding-block: $padding-small;
+        background: var(--clr-header-blur);
+    }
+    &__container {
+        @extend %container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $gap;
+    }
+    &__actions {
+        display: flex;
+        gap: $gap;
+        align-items: center;
+    }
+    &__logo {
+        width: 100px;
+    }
+    &__nav ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        a {
+            font-size: $fs-6;
+            font-weight: 700;
+            color: var(--clr-primary);
+        }
+    }
+}
+.content {
+    &__container {
+        @extend %container;
+    }
+    &__section {
+        padding-block: calc($padding * 5);
+    }
+}
+.footer {
+    color:white;
+    text-align: center;
+    background-color: var(--clr-primary);
+    &__container {
+        @extend %container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-block: $padding;
+    }
+    &__nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: $gap-double;
+        a {
+            font-size: $fs-5;
+            color: var(--clr-white)
+        }
+    }
+    &__copyright {
+        background-color: var(--clr-primary-darker);
+        padding:0.25rem;
+    }
+    &__name {
+        display: inline-block;
+    }
+}
+
+/********************/
+/* Reusable classes */
+/********************/
+
+.heading {
+    padding-bottom: $padding-small;
+    font-family: $ff-heading;
+    font-size: $fs-title;
+    font-weight: 600;
+    color: var(--clr-primary);
+}
+.subheading {
+    display: block;
+    padding-bottom: $padding;
+    font-family: $ff-body;
+    font-size: $fs-3;
+    color: var(--clr-primary);
+}
+.grid {
+    display: grid;
+    gap: $gap-double;
+}
+.card {
+    padding: $padding;
+    border-radius: $radius-small;
+    box-shadow: $box-shadow;
+    &__link {
+        color: inherit;
+    }
+    &__picture {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        object-position: top left;
+        box-shadow: $pic-shadow;
+    }
+    &__title {
+        margin-bottom: $gap-half;
+        font-family: $ff-heading;
+        font-size: $fs-3;
+        font-weight: 600;
+        color: var(--clr-primary);
+    }
+    /*&__content {
+        
+    }*/
+}
+
+/******************/
+/* General Styles */
+/******************/
+
+.about__picture {
+    width: 100%;
+    aspect-ratio: 1/1.1;
+    object-fit: cover;
+    border-radius: $radius-small;
+    box-shadow: $pic-shadow;
+    transition: $transition-time;
+}
+#projects .grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.content__section--hero {
+    height: 100dvh;
+    background: url('../img/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    .heading {font-size: $fs-title;}
+    .subheading {font-size: $fs-1;}
+    > .grid {
+        padding-top: 5vw;
+    }
+}
+
+@media(width > $mobile) {
+    .header__nav ul {
+        gap: $gap-double;
+    }
+    .content__section--hero .grid,
+    #contact .grid {
+        grid-template-columns: 1fr 500px;
+    }
+    #about .grid {
+        grid-template-columns: 1fr 350px;
+    }
+}
+
+@media(width <= $mobile) {
+    .header__nav {
+        display: none;
+    }
+    .header__actions {
+        justify-content: flex-end;
+    }
+    #header__menu-btn {
+        --size: 30px;
+        width: var(--size);
+        height: var(--size);
+        display: block;
+        position: relative;
+        span {
+            position: absolute;
+            left: 10%;
+            display: block;
+            width: 80%;
+            height: 2px;
+            background-color: var(--clr-primary);
+            transition: $transition-time-fast;
+            &.top {
+                top: 30%;
+            }
+            &.middle {
+                top: 50%;
+            }
+            &.bottom {
+                top: 70%;
+            }
+        }
+        &[aria-expanded="true"] {
+            span {
+                &.top {
+                    transform: rotate(45deg);
+                    top: 50%;
+                }
+                &.middle {
+                    opacity: 0;
+                }
+                &.bottom {
+                    transform: rotate(-45deg);
+                    top: 50%;
+                }
+            }
+        }
+    }
+    .header__nav {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        background-color: var(--clr-menu-blur);
+        backdrop-filter: blur(0.25rem);
+        transform: translateY(-100%);
+        opacity: 0;
+        overflow: hidden;
+        transition-property: transform, opacity;
+        transition-duration: $transition-time;
+        ul {
+            padding-block: $padding-small;
+            width: 100%;
+            flex-direction: column;
+        }
+        li {
+            display: block;
+            width: 100%;
+            &:not(:last-child) {
+                border-bottom: 1pt solid var(--clr-gray);
+            }
+        }
+        a {
+            display: block;
+            padding-block: $padding;
+            text-align: center;
+        }
+        &[aria-expanded="true"] {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    .footer {
+        &__container {
+            flex-direction: column;
+            gap: $gap-double;
+            img {
+                order: 2;
+            }
+        }
+        &__nav:not(:last-child) {
+            ul {
+                flex-direction: column;
+                gap: $gap-half;
+            }
+        }
+    }
+}

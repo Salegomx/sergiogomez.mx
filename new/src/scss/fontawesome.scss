@@ -1,0 +1,31 @@
+/*!
+ * Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2024 Fonticons, Inc.
+ */
+
+// Abstract
+@import './fonts/fontawesome/functions';
+@import './fonts/fontawesome/mixins';
+@import './fonts/fontawesome/variables';
+
+// Core
+@import './fonts/fontawesome/core';
+
+// Fonts
+@import './fonts/fontawesome/solid';
+@import './fonts/fontawesome/regular';
+@import './fonts/fontawesome/brands';
+
+// Icons
+@import './fonts/fontawesome/icons';
+
+// Turned Off
+//@import './fonts/fontawesome/screen-reader';
+//@import './fonts/fontawesome/sizing';
+//@import './fonts/fontawesome/rotated-flipped';
+//@import './fonts/fontawesome/stacked';
+//@import './fonts/fontawesome/fixed-width';
+//@import './fonts/fontawesome/list';
+//@import './fonts/fontawesome/bordered-pulled';
+//@import './fonts/fontawesome/animated';

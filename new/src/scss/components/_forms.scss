@@ -1,0 +1,47 @@
+@use '../abstract/variables' as *;
+
+.form {
+    padding: $padding;
+    border-radius: $radius-small;
+    box-shadow: $box-shadow;
+    fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $gap;
+        margin-bottom: $gap;
+        border: 0;
+        label {
+            flex-basis: 200px;
+            flex-shrink: 1;
+            flex-grow: 1;
+            span {
+                color: var(--clr-primary)
+            }
+            input, textarea, select {
+                display: block;
+                margin-top: $gap-half;
+                padding: 1px 5px;
+                width: 100%;
+                font-size: var(--fs-caption);
+                border: 0;
+                border-radius: 2px;
+                outline: 1pt solid var(--clr-gray);
+                &:focus-visible {
+                    outline: 2pt solid var(--clr-accent);
+                }
+            }
+            textarea {
+                resize: vertical;
+                height: 10ch;
+                min-height: 5ch;
+                max-height: 15ch;
+            }
+        }
+    }
+    input[type="submit"] {
+        display: block;
+        width: 100%;
+        color: var(--clr-primary);
+        background: var(--clr-accent);
+    }
+}
