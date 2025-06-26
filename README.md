@@ -1,6 +1,6 @@
 # Sergio Gómez - Portfolio
 
-This is the source code for Sergio Gómez's personal website, developed as a project to showcase his skills as a web developer.
+This is the source code for my personal website, developed as a project to showcase my skills as a web developer.
 
 ## Features
 
