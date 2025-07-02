@@ -9,7 +9,8 @@
 }
 body {
     font-family: $ff-body;
-    color: var(--clr-primary-darker);
+    font-size: $fs-5;
+    color: var(--clr-black);
     line-height: 1.5;
 }
 .header {
@@ -44,13 +45,13 @@ body {
         align-items: center;
         flex-wrap: wrap;
         a {
-            font-size: $fs-6;
-            font-weight: 700;
+            font-size: $fs-5;
             color: var(--clr-primary);
         }
     }
 }
 .content {
+    background: var(--clr-white);
     &__container {
         @extend %container;
     }
@@ -59,6 +60,11 @@ body {
     }
 }
 .footer {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
     color:white;
     text-align: center;
     background-color: var(--clr-primary);
@@ -80,8 +86,9 @@ body {
         }
     }
     &__copyright {
-        background-color: var(--clr-primary-darker);
         padding:0.25rem;
+        font-size: $fs-6;
+        background-color: var(--clr-primary-darker);
     }
     &__name {
         display: inline-block;
@@ -111,29 +118,38 @@ body {
     gap: $gap-double;
 }
 .card {
-    padding: $padding;
-    border-radius: $radius-small;
-    box-shadow: $box-shadow;
-    &__link {
-        color: inherit;
+    border-radius: $radius-5;
+    outline: 1pt solid #EEEE;
+    overflow: clip;
+    > a {
+        padding: 0;
     }
     &__picture {
         width: 100%;
-        aspect-ratio: 16/9;
+        aspect-ratio: 2/1;
         object-fit: cover;
         object-position: top left;
         box-shadow: $pic-shadow;
     }
+    &__content {
+        padding: $padding;
+    }
+    &__title-container {
+        display: flex;
+        align-items: baseline;
+        gap: $gap-half;
+        a {
+            font-size: $fs-6;
+            color: var(--clr-primary);
+        }
+    }
     &__title {
-        margin-bottom: $gap-half;
+        margin-bottom: $gap;
         font-family: $ff-heading;
         font-size: $fs-3;
         font-weight: 600;
         color: var(--clr-primary);
     }
-    /*&__content {
-        
-    }*/
 }
 
 /******************/
@@ -149,7 +165,7 @@ body {
     transition: $transition-time;
 }
 #projects .grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 .content__section--hero {
     height: 100dvh;
