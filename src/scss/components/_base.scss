@@ -12,6 +12,8 @@ body {
     font-size: $fs-5;
     color: var(--clr-black);
     line-height: 1.5;
+    background-color: var(--clr-primary-darker);
+    isolation: isolate;
 }
 .header {
     position: fixed;
@@ -111,7 +113,7 @@ body {
     padding-bottom: $padding;
     font-family: $ff-body;
     font-size: $fs-3;
-    color: var(--clr-primary);
+    color: var(--clr-gray-dark);
 }
 .grid {
     display: grid;
@@ -119,7 +121,7 @@ body {
 }
 .card {
     border-radius: $radius-5;
-    outline: 1pt solid #EEEE;
+    outline: 1pt solid var(--clr-gray-light);
     overflow: clip;
     > a {
         padding: 0;
@@ -140,7 +142,6 @@ body {
         align-items: baseline;
         gap: $gap-half;
         a {
-            font-size: $fs-6;
             color: var(--clr-primary);
         }
     }

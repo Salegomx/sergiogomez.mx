@@ -1,6 +1,6 @@
 :root {
     /* Colors */
-    --clr-primary-base: 236, 37%;
+    --clr-primary-base: 225, 60%;
     --clr-primary-darker: hsl(var(--clr-primary-base), 8%);
     --clr-primary-dark: hsl(var(--clr-primary-base), 18%);
     --clr-primary: hsl(var(--clr-primary-base), 23%);
@@ -11,7 +11,9 @@
     --clr-accent: #FFB651;
 
     --clr-white: #FFF;
+    --clr-gray-light: #EEE;
     --clr-gray: #CCC;
+    --clr-gray-dark: #333;
     --clr-black: #2a2a2a;
 
     --clr-header-blur: #FAF4E8CC;
