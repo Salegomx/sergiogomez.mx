@@ -2543,7 +2543,7 @@ $fa-var-pix: \e43a;
 $fa-var-steam-symbol: \f3f6;
 
 $fa-icons: (
-	"circle-half-stroke": $fa-var-circle-half-stroke,
+	//"circle-half-stroke": $fa-var-circle-half-stroke,
 	"envelope": $fa-var-envelope,
 	"arrow-up-right-from-square": $fa-var-arrow-up-right-from-square,
 	
@@ -4512,9 +4512,9 @@ $fa-icons: (
 $fa-brand-icons: (
 	"github": $fa-var-github,
 	"linkedin-in": $fa-var-linkedin-in,
-	"instagram": $fa-var-instagram,
 
 	// turned off
+	//"instagram": $fa-var-instagram,
 	//"vuejs": $fa-var-vuejs,
 	//"laravel": $fa-var-laravel,
 	//"css": $fa-var-css,
