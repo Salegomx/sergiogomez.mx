@@ -12,7 +12,6 @@ body {
     font-size: $fs-5;
     color: var(--clr-black);
     line-height: 1.5;
-    background-color: var(--clr-primary-darker);
     isolation: isolate;
 }
 .header {
@@ -53,6 +52,8 @@ body {
     }
 }
 .content {
+    min-height: 100dvh;
+    padding-block: 50px;
     background: var(--clr-white);
     &__container {
         @extend %container;

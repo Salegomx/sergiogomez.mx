@@ -13,13 +13,6 @@ menuButton.addEventListener('click', () => {
     menuButton.setAttribute('aria-expanded', isExpanded);
 });
 
-/* Code Editor */
-import CodeEditor from './js/codeEditor/CodeEditor.js';
-
-const thisEditor = new CodeEditor('intro');
-
-thisEditor.init();
-
 /* main */
 window.addEventListener('scroll', () => {
     let scroll = document.documentElement.scrollTop;
