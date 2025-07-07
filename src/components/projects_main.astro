@@ -1,54 +1,24 @@
-<main id="content" class="content">
-    <section id="projects" class="content__section">
-        <div class="content__container">
-            <h2 class="heading">My Work</h2>
-            <p class="subheading">Real-world projects that reflect my approach to design and development.</p>
-            <div class="grid">
-                <div class="card">
-                    <a href="//openhotel.com" target="_blank" title="Visit live site">
-                        <img class="card__picture" src="/img/projects/openhotel.png" alt="Screenshot of openhotel.com">
-                    </a>
-                    <div class="card__content">
-                        <div class="card__title-container">
-                            <h3 class="card__title">OpenHotel.com</h3>
-                            <a href="//openhotel.com" target="_blank" title="Visit live site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                        <p>
-                            This was my first big project.
-                            <br>The goal was to create a website that was very mantainable and responsive by taking advantage of <em class="highlight">modern CSS</em>, but also considering compatibility across major browsers.
-                            <br>Let me show you how I did it.
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="//salegomx.github.io/proferick.com/" target="_blank" title="Visit live site">
-                        <img class="card__picture" src="/img/projects/proferick.png" alt="Screenshot of proferick.com">
-                    </a>
-                    <div class="card__content">
-                        <div class="card__title-container">
-                            <h3 class="card__title">ProfeRick.com</h3>
-                            <a href="//salegomx.github.io/proferick.com/" target="_blank" title="Visit live site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                        <p>
-                            A website for my teacher and mentor.
-                            <br>I desgined it to reflect his style: <em class="highlight">wise but relaxed.</em> Friendly typography, an Owl as a logo and a very distinct design from the rest of the web. You know you are talking to a real professor when you see this website.
-                            <br>Click here to know more about it.
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <a href="//github.com/Salegomx" target="_blank" title="View on GitHub">
-                        <img class="card__picture" src="/img/projects/placeholder.jpg" alt="Screenshot of a mobile app">
-                    </a>
-                    <div class="card__content">
-                        <div class="card__title-container">
-                            <h3 class="card__title">Mobile App with React Native</h3>
-                            <a href="//github.com/Salegomx" target="_blank" title="View on GitHub"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                        <p>Coming Soon...</p>
-                    </div>
-                </div>
-            </div>
+---
+import ProjectCard from "./cards/projectCard.astro";
+const projects = await Astro.glob("../content/projects/*.md");
+---
+<section id="projects" class="content__section">
+    <div class="content__container">
+        <h2 class="heading">My Work</h2>
+        <p class="subheading">Real-world projects that reflect my approach to design and development.</p>
+        <div class="grid">
+            {
+                projects.map((project) => {
+                    return (
+                        <ProjectCard
+                            title={project.frontmatter.title}
+                            link={project.frontmatter.link}
+                            img={project.frontmatter.img}
+                            description={project.compiledContent()}
+                        />
+                    )
+                })
+            }
         </div>
-    </section>
-</main>
+    </div>
+</section>

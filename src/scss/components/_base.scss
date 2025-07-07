@@ -52,7 +52,6 @@ body {
     }
 }
 .content {
-    min-height: 100dvh;
     padding-block: 50px;
     background: var(--clr-white);
     &__container {
@@ -167,9 +166,6 @@ body {
     box-shadow: $pic-shadow;
     transition: $transition-time;
 }
-#projects .grid {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-}
 .content__section--hero {
     height: 100dvh;
     background: url('../img/background.png');
@@ -187,9 +183,15 @@ body {
     .header__nav ul {
         gap: $gap-double;
     }
+    .content {
+        min-height: 100dvh;
+    }
     .content__section--hero .grid,
     #contact .grid {
         grid-template-columns: 1fr 500px;
+    }
+    #projects .grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     }
     #about .grid {
         grid-template-columns: 1fr 350px;
@@ -283,9 +285,6 @@ body {
         &__container {
             flex-direction: column;
             gap: $gap-double;
-            img {
-                order: 2;
-            }
         }
         &__nav:not(:last-child) {
             ul {
