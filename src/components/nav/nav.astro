@@ -1,0 +1,22 @@
+---
+const { pathname } = Astro.url;
+
+const navLinks = [
+  { href: "/projects", name: "Projects" },
+  { href: "/about", name: "About" },
+  { href: "/contact", name: "Contact" },
+];
+---
+
+<ul>
+    {navLinks.map(link => (
+        <li>
+            <a 
+                href={link.href}
+                aria-current={pathname === link.href ? 'page' : 'false'}
+            >
+                {link.name}
+            </a>
+        </li>
+        ))}
+</ul>

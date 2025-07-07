@@ -1,24 +1,20 @@
+---
+import Nav from "./nav/nav.astro";
+import SocialNav from "./nav/socialNav.astro";
+---
+
     <footer class="footer">
         <div class="footer__container">
-            <img src="/img/logo_white.svg" alt="Sergio Gómez" width="225" height="67.5">
+            <img src="/img/logo_white.svg" alt="Sergio Gómez" width="225" height="67.5" loading="lazy">
             <nav class="footer__nav">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+                <Nav />
             </nav>
             <nav class="footer__nav">
-                <ul>
-                    <li><a href="https://github.com/Salegomx" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" title="GitHub" aria-label="GitHub"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/salegomx/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in" title="LinkedIn" aria-label="LinkedIn"></i></a></li>
-                    <li><a href="mailto:hola@sergiogomez.mx" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-envelope" title="Email" aria-label="Email"></i></a></li>
-                </ul>
+                <SocialNav />
             </nav>
         </div>
         <div class="footer__copyright">
-            <p>© <span class="footer__year"></span> • Designed and developed by <span class="footer__name">Sergio Gómez</span></p>
+            <p>© <span class="footer__year"></span> • Designed and developed by <span class="footer__name highlight">Sergio Gómez</span></p>
         </div>
     </footer>
     <script src="../main.js"></script>

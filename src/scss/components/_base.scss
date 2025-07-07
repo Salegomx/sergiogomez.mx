@@ -48,6 +48,12 @@ body {
         a {
             font-size: $fs-5;
             color: var(--clr-primary);
+            &:hover,
+            &[aria-current="page"] {
+                text-decoration: underline;
+                text-decoration-color: var(--clr-accent);
+                text-decoration-thickness: 0.2ch;
+            }
         }
     }
 }
@@ -84,7 +90,13 @@ body {
         gap: $gap-double;
         a {
             font-size: $fs-5;
-            color: var(--clr-white)
+            color: var(--clr-white);
+            &:hover,
+            &[aria-current="page"] {
+                text-decoration: underline;
+                text-decoration-color: var(--clr-accent);
+                text-decoration-thickness: 0.2ch;
+            }
         }
     }
     &__copyright {
@@ -179,12 +191,24 @@ body {
     }
 }
 
+.contact__social {
+    margin-top: $gap;
+    ul {
+        display: flex;
+        gap: $gap-double;
+        a {
+            color: var(--clr-primary);
+        }
+    }
+}
+
 @media(width > $mobile) {
     .header__nav ul {
         gap: $gap-double;
     }
     .content {
-        min-height: 100dvh;
+        min-height: 100vh; // fallback
+        min-height: 100lvh;
     }
     .content__section--hero .grid,
     #contact .grid {

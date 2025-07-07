@@ -3,13 +3,13 @@ const { title, link, img, description } = Astro.props;
 ---
 
 <div class="card">
-    <a href={link} target="_blank" title="Visit live site">
+    <a href={link || "#"} target="_blank" title="Visit live site" aria-label="Visit live site">
         <img class="card__picture" src={`/img/projects/${img}`} alt={title}>
     </a>
     <div class="card__content">
         <div class="card__title-container">
             <span class="card__title">{title}</span>
-            <a href={link} target="_blank" title="Visit live site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href={link || "#"} target="_blank" title="Visit live site" aria-label="Visit live site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <p set:html={description}></p>
     </div>

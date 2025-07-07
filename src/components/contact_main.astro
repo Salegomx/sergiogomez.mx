@@ -1,3 +1,7 @@
+---
+import SocialNav from "./nav/socialNav.astro";
+---
+
 <section id="contact" class="content__section">
     <div class="content__container grid">
         <div>
@@ -7,6 +11,9 @@
                 If you're working on something interesting or just want to connect,
                 <br>feel free to reach out.
             </p>
+            <nav class="contact__social">
+                <SocialNav />
+            </nav>
         </div>
         <div>
             <form id="contact-form" class="form" method="post" action="https://formspree.io/f/mgvybgbj">

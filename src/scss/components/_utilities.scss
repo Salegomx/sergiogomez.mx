@@ -13,9 +13,9 @@
 }
 .highlight {
     font-style: normal;
-    text-decoration: underline;
-    text-decoration-color: var(--clr-accent);
-    text-decoration-thickness: 2px;
+    text-decoration: underline !important;
+    text-decoration-color: var(--clr-accent) !important;
+    text-decoration-thickness: 0.2ch !important;
 }
 /* Mobile */
 @media(width <= $mobile) {
