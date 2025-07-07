@@ -1,0 +1,36 @@
+<section id="hero" class="content__section content__section--hero">
+    <div class="content__container grid">
+        <div>
+            <h1 class="heading">Sergio Gómez</h1>
+            <p class="subheading">Web Developer.<br>Multi-faceted. I <em class="highlight">love</em> CSS</p>
+        </div>
+        <div>
+            <div id="intro" class="editor">
+                <ul class="editor_tabset draggable-horizontal">
+                    <li role="tab"><span data-target="#intro-json"><img class="editor_tabset-ico" src="./img/json.png" alt=""><span>intro.json</span></span></li>
+                </ul>
+                <div class="editor_display">
+                    <div id="intro-json" class="editor_window">
+                        <pre>
+                            <code class="language-js">
+                                &lbrace;
+                                    "name": "Sergio_Gomez",
+                                    "title": "Web_Developer",
+                                    "url": "https://sergiogomez.mx",
+                                    "contact": "hola@sergiogomez.mx"
+                                &rbrace;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import CodeEditor from '../js/codeEditor/codeEditor.js';
+
+    const introEditor = new CodeEditor('intro');
+    introEditor.init();
+</script>

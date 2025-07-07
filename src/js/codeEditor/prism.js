@@ -1,6 +1,12 @@
-/* PrismJS 1.30.0
-https://prismjs.com/download.html#themes=prism-twilight&languages=markup+css+clike+javascript+bash+ignore+json+markup-templating+php+plsql+scss+sql+typescript+uri&plugins=line-numbers+normalize-whitespace */
-/// <reference lib="WebWorker"/>
+/*!
+ * Prism: Lightweight, robust, elegant syntax highlighting
+ * PrismJS 1.30.0
+ *
+ * @license MIT <https://opensource.org/licenses/MIT>
+ * @author Lea Verou <https://lea.verou.me>
+ * @namespace
+ * @public
+ */
 
 var _self = (typeof window !== 'undefined')
 	? window   // if in browser
@@ -10,14 +16,6 @@ var _self = (typeof window !== 'undefined')
 			: {}   // if in node js
 	);
 
-/**
- * Prism: Lightweight, robust, elegant syntax highlighting
- *
- * @license MIT <https://opensource.org/licenses/MIT>
- * @author Lea Verou <https://lea.verou.me>
- * @namespace
- * @public
- */
 var Prism = (function (_self) {
 
 	// Private helper vars
@@ -1561,6 +1559,10 @@ Prism.languages.clike = {
 	'punctuation': /[{}[\];(),.:]/
 };
 
+/**********************************************/
+/* Languages: JavaScript | JSON | webmanifest */
+/**********************************************/
+
 Prism.languages.javascript = Prism.languages.extend('clike', {
 	'class-name': [
 		Prism.languages.clike['class-name'],
@@ -1611,10 +1613,6 @@ Prism.languages.javascript = Prism.languages.extend('clike', {
 	},
 	'operator': /--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/
 });
-
-/*************************/
-/* Languages: JavaScript */
-/*************************/
 
 Prism.languages.javascript['class-name'][0].pattern = /(\b(?:class|extends|implements|instanceof|interface|new)\s+)[\w.\\]+/;
 
@@ -1737,6 +1735,12 @@ if (Prism.languages.markup) {
 }
 
 Prism.languages.js = Prism.languages.javascript;
+Prism.languages.json = Prism.languages.javascript;
+Prism.languages.webmanifest = Prism.languages.javascript;
+
+/********************************/
+/* Languages: bash | sh | shell */
+/********************************/
 
 (function (Prism) {
 	// $ set | grep '^[A-Z][^[:space:]]*=' | cut -d= -f1 | tr '\n' '|'
@@ -1973,65 +1977,6 @@ Prism.languages.js = Prism.languages.javascript;
 	Prism.languages.sh = Prism.languages.bash;
 	Prism.languages.shell = Prism.languages.bash;
 }(Prism));
-
-/***********************************************/
-/* Languages: gitignore | hgignore | npmignore */
-/***********************************************/
-
-(function (Prism) {
-	Prism.languages.ignore = {
-		// https://git-scm.com/docs/gitignore
-		'comment': /^#.*/m,
-		'entry': {
-			pattern: /\S(?:.*(?:(?:\\ )|\S))?/,
-			alias: 'string',
-			inside: {
-				'operator': /^!|\*\*?|\?/,
-				'regex': {
-					pattern: /(^|[^\\])\[[^\[\]]*\]/,
-					lookbehind: true
-				},
-				'punctuation': /\//
-			}
-		}
-	};
-
-	Prism.languages.gitignore = Prism.languages.ignore;
-	Prism.languages.hgignore = Prism.languages.ignore;
-	Prism.languages.npmignore = Prism.languages.ignore;
-
-}(Prism));
-
-/*******************/
-/* Languages: JSON */
-/*******************/
-
-Prism.languages.json = {
-	'property': {
-		pattern: /(^|[^\\])"(?:\\.|[^\\"\r\n])*"(?=\s*:)/,
-		lookbehind: true,
-		greedy: true
-	},
-	'string': {
-		pattern: /(^|[^\\])"(?:\\.|[^\\"\r\n])*"(?!\s*:)/,
-		lookbehind: true,
-		greedy: true
-	},
-	'comment': {
-		pattern: /\/\/.*|\/\*[\s\S]*?(?:\*\/|$)/,
-		greedy: true
-	},
-	'number': /-?\b\d+(?:\.\d+)?(?:e[+-]?\d+)?\b/i,
-	'punctuation': /[{}[\],]/,
-	'operator': /:/,
-	'boolean': /\b(?:false|true)\b/,
-	'null': {
-		pattern: /\bnull\b/,
-		alias: 'keyword'
-	}
-};
-
-Prism.languages.webmanifest = Prism.languages.json;
 
 /***************************************************/
 /* Languages: Markup Templating (important for PHP)*/
@@ -2704,100 +2649,128 @@ Prism.languages.scss['atrule'].inside.rest = Prism.languages.scss;
 /* Languages: URL | URI */
 /************************/
 
-Prism.languages.uri = {
-	'scheme': {
-		pattern: /^[a-z][a-z0-9+.-]*:/im,
-		greedy: true,
-		inside: {
-			'scheme-delimiter': /:$/
-		}
-	},
-	'fragment': {
-		pattern: /#[\w\-.~!$&'()*+,;=%:@/?]*/,
-		inside: {
-			'fragment-delimiter': /^#/
-		}
-	},
-	'query': {
-		pattern: /\?[\w\-.~!$&'()*+,;=%:@/?]*/,
-		inside: {
-			'query-delimiter': {
-				pattern: /^\?/,
-				greedy: true
-			},
-			'pair-delimiter': /[&;]/,
-			'pair': {
-				pattern: /^[^=][\s\S]*/,
-				inside: {
-					'key': /^[^=]+/,
-					'value': {
-						pattern: /(^=)[\s\S]+/,
-						lookbehind: true
-					}
-				}
-			}
-		}
-	},
-	'authority': {
-		pattern: RegExp(
-			/^\/\//.source
-			// [ userinfo "@" ]
-			+ /(?:[\w\-.~!$&'()*+,;=%:]*@)?/.source
-			// host
-			+ (
-				'(?:'
-				// IP-literal
-				+ /\[(?:[0-9a-fA-F:.]{2,48}|v[0-9a-fA-F]+\.[\w\-.~!$&'()*+,;=]+)\]/.source
-				+ '|'
-				// IPv4address or registered name
-				+ /[\w\-.~!$&'()*+,;=%]*/.source
-				+ ')'
-			)
-			// [ ":" port ]
-			+ /(?::\d*)?/.source,
-			'm'
-		),
-		inside: {
-			'authority-delimiter': /^\/\//,
-			'user-info-segment': {
-				pattern: /^[\w\-.~!$&'()*+,;=%:]*@/,
-				inside: {
-					'user-info-delimiter': /@$/,
-					'user-info': /^[\w\-.~!$&'()*+,;=%:]+/
-				}
-			},
-			'port-segment': {
-				pattern: /:\d*$/,
-				inside: {
-					'port-delimiter': /^:/,
-					'port': /^\d+/
-				}
-			},
-			'host': {
-				pattern: /[\s\S]+/,
-				inside: {
-					'ip-literal': {
-						pattern: /^\[[\s\S]+\]$/,
-						inside: {
-							'ip-literal-delimiter': /^\[|\]$/,
-							'ipv-future': /^v[\s\S]+/,
-							'ipv6-address': /^[\s\S]+/
-						}
-					},
-					'ipv4-address': /^(?:(?:[03-9]\d?|[12]\d{0,2})\.){3}(?:[03-9]\d?|[12]\d{0,2})$/
-				}
-			}
-		}
-	},
-	'path': {
-		pattern: /^[\w\-.~!$&'()*+,;=%:@/]+/m,
-		inside: {
-			'path-separator': /\//
-		}
-	}
-};
+//Prism.languages.uri = {
+//	'scheme': {
+//		pattern: /^[a-z][a-z0-9+.-]*:/im,
+//		greedy: true,
+//		inside: {
+//			'scheme-delimiter': /:$/
+//		}
+//	},
+//	'fragment': {
+//		pattern: /#[\w\-.~!$&'()*+,;=%:@/?]*/,
+//		inside: {
+//			'fragment-delimiter': /^#/
+//		}
+//	},
+//	'query': {
+//		pattern: /\?[\w\-.~!$&'()*+,;=%:@/?]*/,
+//		inside: {
+//			'query-delimiter': {
+//				pattern: /^\?/,
+//				greedy: true
+//			},
+//			'pair-delimiter': /[&;]/,
+//			'pair': {
+//				pattern: /^[^=][\s\S]*/,
+//				inside: {
+//					'key': /^[^=]+/,
+//					'value': {
+//						pattern: /(^=)[\s\S]+/,
+//						lookbehind: true
+//					}
+//				}
+//			}
+//		}
+//	},
+//	'authority': {
+//		pattern: RegExp(
+//			/^\/\//.source
+//			// [ userinfo "@" ]
+//			+ /(?:[\w\-.~!$&'()*+,;=%:]*@)?/.source
+//			// host
+//			+ (
+//				'(?:'
+//				// IP-literal
+//				+ /\[(?:[0-9a-fA-F:.]{2,48}|v[0-9a-fA-F]+\.[\w\-.~!$&'()*+,;=]+)\]/.source
+//				+ '|'
+//				// IPv4address or registered name
+//				+ /[\w\-.~!$&'()*+,;=%]*/.source
+//				+ ')'
+//			)
+//			// [ ":" port ]
+//			+ /(?::\d*)?/.source,
+//			'm'
+//		),
+//		inside: {
+//			'authority-delimiter': /^\/\//,
+//			'user-info-segment': {
+//				pattern: /^[\w\-.~!$&'()*+,;=%:]*@/,
+//				inside: {
+//					'user-info-delimiter': /@$/,
+//					'user-info': /^[\w\-.~!$&'()*+,;=%:]+/
+//				}
+//			},
+//			'port-segment': {
+//				pattern: /:\d*$/,
+//				inside: {
+//					'port-delimiter': /^:/,
+//					'port': /^\d+/
+//				}
+//			},
+//			'host': {
+//				pattern: /[\s\S]+/,
+//				inside: {
+//					'ip-literal': {
+//						pattern: /^\[[\s\S]+\]$/,
+//						inside: {
+//							'ip-literal-delimiter': /^\[|\]$/,
+//							'ipv-future': /^v[\s\S]+/,
+//							'ipv6-address': /^[\s\S]+/
+//						}
+//					},
+//					'ipv4-address': /^(?:(?:[03-9]\d?|[12]\d{0,2})\.){3}(?:[03-9]\d?|[12]\d{0,2})$/
+//				}
+//			}
+//		}
+//	},
+//	'path': {
+//		pattern: /^[\w\-.~!$&'()*+,;=%:@/]+/m,
+//		inside: {
+//			'path-separator': /\//
+//		}
+//	}
+//};
 
-Prism.languages.url = Prism.languages.uri;
+//Prism.languages.url = Prism.languages.uri;
+
+/***********************************************/
+/* Languages: gitignore | hgignore | npmignore */
+/***********************************************/
+
+//(function (Prism) {
+//	Prism.languages.ignore = {
+//		// https://git-scm.com/docs/gitignore
+//		'comment': /^#.*/m,
+//		'entry': {
+//			pattern: /\S(?:.*(?:(?:\\ )|\S))?/,
+//			alias: 'string',
+//			inside: {
+//				'operator': /^!|\*\*?|\?/,
+//				'regex': {
+//					pattern: /(^|[^\\])\[[^\[\]]*\]/,
+//					lookbehind: true
+//				},
+//				'punctuation': /\//
+//			}
+//		}
+//	};
+
+//	Prism.languages.gitignore = Prism.languages.ignore;
+//	Prism.languages.hgignore = Prism.languages.ignore;
+//	Prism.languages.npmignore = Prism.languages.ignore;
+
+//}(Prism));
 
 /*****************************************************************/
 /* Plugin: Line Numbers https://prismjs.com/plugins/line-numbers */
@@ -3203,11 +3176,11 @@ Prism.languages.url = Prism.languages.uri;
 		'remove-indent': true,
 		'left-trim': true,
 		'right-trim': true,
-		/*'break-lines': 80,
-		'indent': 2,
-		'remove-initial-line-feed': false,
+		//'break-lines': 80,
+		//'indent': 4,
+		//'remove-initial-line-feed': false,
 		'tabs-to-spaces': 4,
-		'spaces-to-tabs': 4*/
+		'spaces-to-tabs': 4
 	});
 
 	Prism.hooks.add('before-sanity-check', function (env) {

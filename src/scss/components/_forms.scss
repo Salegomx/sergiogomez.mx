@@ -2,8 +2,8 @@
 
 .form {
     padding: $padding;
-    border-radius: $radius-small;
-    box-shadow: $box-shadow;
+    border-radius: $radius-5;
+    outline: 1pt solid var(--clr-gray-light);
     fieldset {
         display: flex;
         flex-wrap: wrap;
@@ -22,7 +22,6 @@
                 margin-top: $gap-half;
                 padding: 1px 5px;
                 width: 100%;
-                font-size: var(--fs-caption);
                 border: 0;
                 border-radius: 2px;
                 outline: 1pt solid var(--clr-gray);
@@ -36,6 +35,16 @@
                 min-height: 5ch;
                 max-height: 15ch;
             }
+        }
+    }
+    .form-status {
+        font-size: $fs-6;
+        text-align: center;
+        &.success {
+            color: var(--clr-success);
+        }
+        &.error {
+            color: var(--clr-error);
         }
     }
     input[type="submit"] {
