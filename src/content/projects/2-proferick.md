@@ -2,6 +2,7 @@
 title: ProfeRick.com
 link: //salegomx.github.io/proferick.com/
 img: proferick.png
+tags: ["Vite", "Sass", "Figma", "i18n"]
 ---
 
 A website for my teacher and mentor.<br>

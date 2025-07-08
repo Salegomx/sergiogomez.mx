@@ -1,5 +1,50 @@
+---
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
+const socialIcons = [
+    {
+        name: 'GitHub',
+        url: 'https://github.com/Salegomx',
+        icon: faGithub
+    },
+    {
+        name: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/salegomx/',
+        icon: faLinkedinIn
+    },
+    {
+        name: 'Email',
+        url: 'mailto:hola@sergiogomez.mx?subject=sergiogomez.mx',
+        icon: faEnvelope
+    }
+];
+
+// SVGPathData to string
+const getPathData = (iconData: any) => {
+    return Array.isArray(iconData) ? iconData.join(' ') : iconData;
+};
+---
+
 <ul>
-    <li><a href="https://github.com/Salegomx" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github" ></i></a></li>
-    <li><a href="https://www.linkedin.com/in/salegomx/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-    <li><a href="mailto:hola@sergiogomez.mx" target="_blank" rel="noopener noreferrer" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a></li>
+    {socialIcons.map((social) => (
+        <li>
+            <a 
+                href={social.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                title={social.name} 
+                aria-label={social.name}
+            >
+                <svg 
+                    width="20" 
+                    height="20" 
+                    viewBox={`0 0 ${social.icon.icon[0]} ${social.icon.icon[1]}`} 
+                    fill="currentColor"
+                >
+                    <path d={getPathData(social.icon.icon[4])}></path>
+                </svg>
+            </a>
+        </li>
+    ))}
 </ul>

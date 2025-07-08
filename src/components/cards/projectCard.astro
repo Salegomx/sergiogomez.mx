@@ -1,29 +1,50 @@
 ---
-const { title, link, img, description } = Astro.props;
+export interface Props {
+    title: string;
+    link: string;
+    img: string;
+    description: Promise<string>;
+    tags: string[];
+}
+
+import { Picture } from "astro:assets";
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+
+const { title, link, img, description, tags } = Astro.props;
+
+const images = import.meta.glob('/src/assets/img/projects/*', {
+    import: 'default'
+});
+
+const imagePath = `/src/assets/img/projects/${img}`;
+const imageLoader = images[imagePath];
+const image = await imageLoader() as any;
+
+// SVGPathData to string
+const getPathData = (iconData: any) => {
+    return Array.isArray(iconData) ? iconData.join(' ') : iconData;
+};
 ---
 
 <div class="card">
-    <a href={link || "#"} target="_blank" title="Visit live site" aria-label="Visit live site">
-        <img class="card__picture" src={`/img/projects/${img}`} alt={title}>
+    <a href={link || "/"} target="_blank" title="Visit live site" aria-label="Visit live site">
+        <Picture class="card__picture" src={image} alt={title} quality={"mid"} formats={["avif", "webp"]} fallbackFormat="jpg" inferSize={false} />
     </a>
     <div class="card__content">
         <div class="card__title-container">
             <span class="card__title">{title}</span>
-            <a href={link || "#"} target="_blank" title="Visit live site" aria-label="Visit live site"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <ul class="card__tags">
+                {tags.map((tag) => (
+                    <li class="card__tag">{tag}</li>
+                ))}
+            </ul>
         </div>
-        <p set:html={description}></p>
+        <div set:html={description}></div>
+        <a class="card__link" href={link || "/"} target="_blank" title="Visit live site" aria-label="Visit live site">
+            <span>Visit live site</span>
+            <svg width="16" height="16" viewBox={`0 0 ${faArrowUpRightFromSquare.icon[0]} ${faArrowUpRightFromSquare.icon[1]}`} fill="currentColor">
+                <path d={getPathData(faArrowUpRightFromSquare.icon[4])}></path>
+            </svg>
+        </a>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-

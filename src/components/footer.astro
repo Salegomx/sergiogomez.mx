@@ -1,11 +1,13 @@
 ---
+import { Image } from "astro:assets";
 import Nav from "./nav/nav.astro";
 import SocialNav from "./nav/socialNav.astro";
+import logo from "../assets/img/logo_white.svg";
 ---
 
     <footer class="footer">
         <div class="footer__container">
-            <img src="/img/logo_white.svg" alt="Sergio Gómez" width="225" height="67.5" loading="lazy">
+            <Image src={logo} alt="Sergio Gómez" width="225" height="67.5" loading="lazy" />
             <nav class="footer__nav">
                 <Nav />
             </nav>

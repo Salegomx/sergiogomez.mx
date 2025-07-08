@@ -15,6 +15,7 @@ const projects = await Astro.glob("../content/projects/*.md");
                             link={project.frontmatter.link}
                             img={project.frontmatter.img}
                             description={project.compiledContent()}
+                            tags={project.frontmatter.tags}
                         />
                     )
                 })

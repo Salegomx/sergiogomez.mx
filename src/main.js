@@ -1,6 +1,5 @@
 /* Styles */
 import './scss/styles.scss';
-import './scss/fontawesome.scss';
 
 /* Header */
 let isExpanded = false;

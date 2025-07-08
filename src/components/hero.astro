@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets";
+import json from "../assets/img/json.png";
+---
+
 <section id="hero" class="content__section content__section--hero">
     <div class="content__container grid">
         <div>
@@ -6,8 +11,8 @@
         </div>
         <div>
             <div id="intro" class="editor">
-                <ul class="editor_tabset draggable-horizontal">
-                    <li role="tab"><span data-target="#intro-json"><img class="editor_tabset-ico" src="./img/json.png" alt=""><span>intro.json</span></span></li>
+                <ul role="tablist" class="editor_tabset draggable-horizontal">
+                    <li role="tab"><span data-target="#intro-json"><Image class="editor_tabset-ico" src={json} alt="" loading="eager" width={15} height={15} /><span>intro.json</span></span></li>
                 </ul>
                 <div class="editor_display">
                     <div id="intro-json" class="editor_window">

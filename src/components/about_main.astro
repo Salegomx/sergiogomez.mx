@@ -1,3 +1,8 @@
+---
+import { Picture } from "astro:assets";
+import sergio from "../assets/img/sergio.jpg";
+---
+
 <section id="about" class="content__section">
     <div class="content__container">
         <h2 class="heading">Who am I?</h2>
@@ -12,7 +17,16 @@
                 <br>“Have less. Do more. Be more.”
                 <br>“Humility without ambition makes you mediocre. Ambition without humility makes you toxic.”
             </p>
-            <img class="about__picture" src="/img/sergio.jpg" alt="Sergio Gómez" loading="lazy">
+            <Picture
+                class="about__picture"
+                src={sergio}
+                alt="Sergio Gómez"
+                loading="lazy"
+                quality={"mid"}
+                formats={["avif", "webp"]}
+                fallbackFormat="jpg"
+                inferSize={false}
+            />
         </div>
     </div>
 </section>

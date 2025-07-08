@@ -2,6 +2,7 @@
 title: OpenHotel.com
 link: //openhotel.com
 img: openhotel.png
+tags: ["ColdFusion", "CSS", "jQuery"]
 ---
 
 This was my first big project.<br>

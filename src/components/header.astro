@@ -1,5 +1,15 @@
 ---
+export interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
 import Nav from "./nav/nav.astro";
+import { Image } from "astro:assets";
+import logo from "../assets/img/logo.svg";
+
 ---
 
 <!doctype html>
@@ -7,14 +17,19 @@ import Nav from "./nav/nav.astro";
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Sergio Gómez</title>
+	<title>Sergio Gómez | {title}</title>
+	<meta name="description" content={description} />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
 </head>
 <body>
 	<a href="#content" class="sr-only">Skip to content</a>
 	<header class="header">
 		<div class="header__container">
 			<a class="header__logo" href="/">
-				<img src="/img/logo.svg" alt="Sergio Gómez" width="95" height="45">
+				<Image src={logo} alt="Sergio Gómez" width="95" height="45" loading="eager"/>
 			</a>
 			<div class="header__actions">
 				<!--button id="theme-toggle" class="theme-toggle">
@@ -23,7 +38,7 @@ import Nav from "./nav/nav.astro";
 				<nav class="header__nav">
 					<Nav />
 				</nav>
-				<button id="header__menu-btn" class="mobile-only">
+				<button id="header__menu-btn" class="mobile-only" aria-label="Menu">
 					<span class="top"></span>
 					<span class="middle"></span>
 					<span class="bottom"></span>
