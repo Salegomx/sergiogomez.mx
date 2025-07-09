@@ -28,7 +28,17 @@ const getPathData = (iconData: any) => {
 
 <div class="card">
     <a href={link || "/"} target="_blank" title="Visit live site" aria-label="Visit live site">
-        <Picture class="card__picture" src={image} alt={title} quality={"mid"} formats={["avif", "webp"]} fallbackFormat="jpg" inferSize={false} />
+        <Picture
+            class="card__picture"
+            src={image}
+            alt={title}
+            widths={[400, 600, 900, image.width]}
+            sizes={"(max-width: 400px) 400px, (max-width: 768px) 600px, (max-width: 1200px) 900px"}
+            inferSize={false}
+            quality={"mid"}
+            formats={["avif", "webp"]}
+            fallbackFormat="jpg"
+        />
     </a>
     <div class="card__content">
         <div class="card__title-container">
