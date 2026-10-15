@@ -1,10 +1,35 @@
 ---
-import Header from "../components/header.astro";
-import AboutMain from "../components/about_main.astro";
-import Footer from "../components/footer.astro";
+import { Picture } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import sergio from "@assets/img/sergio.jpg";
 ---
-<Header title="About" description="About me" />
-<main id="content" class="content">
-    <AboutMain />
-</main>
-<Footer />
+
+<BaseLayout title="About" description="About me">
+    <section id="about" class="content__section">
+        <div class="content__container">
+            <h2 class="heading">Who am I?</h2>
+            <span class="subheading">A question I haven't completely answered myself yet.</span>
+            <div class="grid">
+                <p>
+                    I'm a full stack developer with a passion for creating clean, purposeful, and user-focused digital experiences.
+                    <br>My work lives at the intersection of design, technology, and real-world impact, particularly in the travel and hospitality industry, which I care deeply about both personally and professionally.
+                    <br><br>This site is a reflection of my journey so far: from coding front-end interfaces, to building and maintaining backend systems and SQL databases. I also take care of domains, SSL certificates, and DNS configuration, because details matter, and I enjoy bridging the creative with the technical.
+                    <br><br>Beyond code, I'm someone who learns through experience. I value curiosity, good questions, and meaningful challenges, whether that means exploring new cultures, working on side projects, or helping others grow. Here, you'll find a mix of my work, thoughts, and ongoing experiments. I'm always building, evolving, and seeking out what's next.
+                    <br><br>Quotes I live by:
+                    <br>“Have less. Do more. Be more.”
+                    <br>“Humility without ambition makes you mediocre. Ambition without humility makes you toxic.”
+                </p>
+                <Picture
+                    class="about__picture"
+                    src={sergio}
+                    alt="Sergio Gómez"
+                    loading="lazy"
+                    quality={"mid"}
+                    formats={["avif", "webp"]}
+                    fallbackFormat="jpg"
+                    inferSize={false}
+                />
+            </div>
+        </div>
+    </section>
+</BaseLayout>

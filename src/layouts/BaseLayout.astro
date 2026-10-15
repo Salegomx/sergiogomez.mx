@@ -1,0 +1,45 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import "@styles/global.scss";
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+	<meta charset="UTF-8" />
+	<!-- Applies the saved theme before first paint to avoid a flash; toggle logic lives in main.js -->
+	<script is:inline>
+		try {
+			const theme = localStorage.getItem("theme");
+			if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+		} catch {}
+	</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sergio Gómez | {title}</title>
+	<meta name="description" content={description} />
+	<link rel="icon" href="/favicon.ico" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+</head>
+<body>
+	<a href="#content" class="sr-only">Skip to content</a>
+	<Header />
+	<main id="content" class="content">
+		<slot />
+	</main>
+	<Footer />
+	<script>
+		import "@scripts/main.js";
+	</script>
+</body>
+</html>

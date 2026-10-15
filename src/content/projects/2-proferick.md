@@ -1,7 +1,7 @@
 ---
 title: ProfeRick.com
 link: //salegomx.github.io/proferick.com/
-img: proferick.png
+img: ../../assets/img/projects/proferick.png
 tags: ["Vite", "Sass", "Figma", "i18n"]
 ---
 

@@ -2,7 +2,9 @@
   "name": "new",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@11.9.0",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -11,9 +13,8 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.11.0",
-    "sass": "^1.89.2",
-    "tailwindcss": "^4.1.11"
+    "astro": "^5.18.2",
+    "sass": "^1.105.1",
+    "sharp": "^0.34.5"
   }
 }

@@ -1,0 +1,17 @@
+---
+import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
+
+export interface Props {
+	icon: IconDefinition;
+	size?: number;
+	class?: string;
+}
+
+const { icon, size = 20, class: className } = Astro.props;
+const [width, height, , , pathData] = icon.icon;
+const d = Array.isArray(pathData) ? pathData.join(" ") : pathData;
+---
+
+<svg class={className} width={size} height={size} viewBox={`0 0 ${width} ${height}`} fill="currentColor" aria-hidden="true">
+	<path d={d}></path>
+</svg>

@@ -1,10 +1,12 @@
 ---
-import Header from "../components/header.astro";
-import IndexMain from "../components/index_main.astro";
-import Footer from "../components/footer.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/sections/Hero.astro";
+import Projects from "@components/sections/Projects.astro";
+import Contact from "@components/sections/Contact.astro";
 ---
-<Header title="Home" description="Home" />
-<main id="content" class="content">
-    <IndexMain />
-</main>
-<Footer />
+
+<BaseLayout title="Home" description="Home">
+    <Hero />
+    <Projects />
+    <Contact />
+</BaseLayout>

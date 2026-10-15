@@ -1,0 +1,82 @@
+@use '../abstract/variables' as *;
+
+.form {
+    padding: $padding;
+    border-radius: $radius-5;
+    outline: 1pt solid var(--clr-border);
+    fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $gap;
+        margin-bottom: $gap;
+        border: 0;
+        label {
+            flex-basis: 200px;
+            flex-shrink: 1;
+            flex-grow: 1;
+            span {
+                color: var(--clr-heading)
+            }
+            input, textarea, select {
+                display: block;
+                margin-top: $gap-half;
+                padding: 0.5rem 0.75rem;
+                width: 100%;
+                font-size: 0.85em;
+                color: var(--clr-text);
+                background: var(--clr-input-bg);
+                border: 0;
+                border-radius: $radius-5;
+                outline: 1pt solid var(--clr-border-strong);
+                transition: outline-color $transition-time-fast;
+                &::placeholder {
+                    color: var(--clr-text-muted);
+                    opacity: 1;
+                }
+                &:hover {
+                    outline-color: var(--clr-text-muted);
+                }
+                &:focus-visible {
+                    outline: 2pt solid var(--clr-accent);
+                }
+                // Keep browser autofill from repainting fields in its own colors
+                &:-webkit-autofill {
+                    -webkit-text-fill-color: var(--clr-text);
+                    box-shadow: inset 0 0 0 100vmax var(--clr-surface);
+                    caret-color: var(--clr-text);
+                }
+            }
+            textarea {
+                resize: vertical;
+                height: 10ch;
+                min-height: 5ch;
+                max-height: 15ch;
+            }
+        }
+    }
+    .form-status {
+        font-size: $fs-6;
+        text-align: center;
+        &.success {
+            color: var(--clr-success);
+        }
+        &.error {
+            color: var(--clr-error);
+        }
+    }
+    input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 0.6rem;
+        color: var(--clr-primary-darker);
+        background: var(--clr-accent);
+        transition: filter $transition-time-fast;
+        &:hover {
+            filter: brightness(1.1);
+        }
+        &:focus-visible {
+            outline: 2pt solid var(--clr-heading);
+            outline-offset: 2pt;
+        }
+    }
+}

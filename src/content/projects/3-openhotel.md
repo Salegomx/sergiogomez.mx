@@ -1,7 +1,7 @@
 ---
 title: OpenHotel.com
 link: //openhotel.com
-img: openhotel.png
+img: ../../assets/img/projects/openhotel.png
 tags: ["ColdFusion", "CSS", "jQuery"]
 ---
 

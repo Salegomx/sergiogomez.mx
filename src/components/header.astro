@@ -1,48 +1,37 @@
 ---
-export interface Props {
-	title: string;
-	description: string;
-}
-
-const { title, description } = Astro.props;
-
-import Nav from "./nav/nav.astro";
+import Nav from "@components/Nav.astro";
+import Icon from "@components/Icon.astro";
 import { Image } from "astro:assets";
-import logo from "../assets/img/logo.svg";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import logo from "@assets/img/logo.svg";
+import logoWhite from "@assets/img/logo_white.svg";
 
+const themeIcons = [
+	{ name: "sun", icon: faSun },
+	{ name: "moon", icon: faMoon },
+];
 ---
 
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Sergio Gómez | {title}</title>
-	<meta name="description" content={description} />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
-</head>
-<body>
-	<a href="#content" class="sr-only">Skip to content</a>
-	<header class="header">
-		<div class="header__container">
-			<a class="header__logo" href="/">
-				<Image src={logo} alt="Sergio Gómez" width="95" height="45" loading="eager"/>
-			</a>
-			<div class="header__actions">
-				<!--button id="theme-toggle" class="theme-toggle">
-					<i class="fa-solid fa-circle-half-stroke"></i>
-				</!button-->
-				<nav class="header__nav">
-					<Nav />
-				</nav>
-				<button id="header__menu-btn" class="mobile-only" aria-label="Menu">
-					<span class="top"></span>
-					<span class="middle"></span>
-					<span class="bottom"></span>
-				</button>
-			</div>
+<header class="header">
+	<div class="header__container">
+		<a class="header__logo" href="/">
+			<Image class="header__logo--light" src={logo} alt="Sergio Gómez" width="95" height="45" loading="eager"/>
+			<Image class="header__logo--dark" src={logoWhite} alt="Sergio Gómez" width="95" height="45" loading="eager"/>
+		</a>
+		<div class="header__actions">
+			<nav class="header__nav">
+				<Nav />
+			</nav>
+			<button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+				{themeIcons.map(({ name, icon }) => (
+					<Icon class={`theme-toggle__icon--${name}`} icon={icon} />
+				))}
+			</button>
+			<button id="header__menu-btn" class="mobile-only" aria-label="Menu">
+				<span class="top"></span>
+				<span class="middle"></span>
+				<span class="bottom"></span>
+			</button>
 		</div>
-	</header>
+	</div>
+</header>

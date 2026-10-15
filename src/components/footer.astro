@@ -1,24 +1,21 @@
 ---
 import { Image } from "astro:assets";
-import Nav from "./nav/nav.astro";
-import SocialNav from "./nav/socialNav.astro";
-import logo from "../assets/img/logo_white.svg";
+import Nav from "@components/Nav.astro";
+import SocialNav from "@components/SocialNav.astro";
+import logo from "@assets/img/logo_white.svg";
 ---
 
-    <footer class="footer">
-        <div class="footer__container">
-            <Image src={logo} alt="Sergio Gómez" width="225" height="67.5" loading="lazy" />
-            <nav class="footer__nav">
-                <Nav />
-            </nav>
-            <nav class="footer__nav">
-                <SocialNav />
-            </nav>
-        </div>
-        <div class="footer__copyright">
-            <p>© <span class="footer__year"></span> • Designed and developed by <span class="footer__name highlight">Sergio Gómez</span></p>
-        </div>
-    </footer>
-    <script src="../main.js"></script>
-</body>
-</html>
+<footer class="footer">
+    <div class="footer__container">
+        <Image src={logo} alt="Sergio Gómez" width="225" height="67.5" loading="lazy" />
+        <nav class="footer__nav">
+            <Nav />
+        </nav>
+        <nav class="footer__nav">
+            <SocialNav />
+        </nav>
+    </div>
+    <div class="footer__copyright">
+        <p>© <span class="footer__year"></span> • Designed and developed by <span class="footer__name highlight">Sergio Gómez</span></p>
+    </div>
+</footer>

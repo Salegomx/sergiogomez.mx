@@ -1,0 +1,40 @@
+---
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import Icon from '@components/Icon.astro';
+
+const socialIcons = [
+    {
+        name: 'GitHub',
+        url: 'https://github.com/Salegomx',
+        icon: faGithub
+    },
+    {
+        name: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/salegomx/',
+        icon: faLinkedinIn
+    },
+    {
+        name: 'Email',
+        url: 'mailto:hola@sergiogomez.mx?subject=sergiogomez.mx',
+        icon: faEnvelope
+    }
+];
+
+---
+
+<ul>
+    {socialIcons.map((social) => (
+        <li>
+            <a 
+                href={social.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                title={social.name} 
+                aria-label={social.name}
+            >
+                <Icon icon={social.icon} />
+            </a>
+        </li>
+    ))}
+</ul>

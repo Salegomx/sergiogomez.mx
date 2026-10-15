@@ -1,0 +1,17 @@
+[data-theme="dark"] {
+    color-scheme: dark;
+    --clr-bg: var(--clr-primary-darker);
+    --clr-text: hsl(var(--clr-primary-base), 88%);
+    --clr-text-muted: hsl(225, 20%, 70%);
+    --clr-heading: var(--clr-secondary);
+    --clr-surface: var(--clr-primary-dark);
+    --clr-border: hsl(225, 35%, 18%);
+    --clr-border-strong: hsl(225, 30%, 30%);
+    --clr-input-bg: var(--clr-primary-dark);
+
+    --clr-header-blur: hsl(225, 50%, 8%, 0.25);
+    --clr-menu-blur: hsl(225, 50%, 8%, 0.93);
+
+    --clr-error: #FF6B6B;
+    --clr-success: #4ADE80;
+}
